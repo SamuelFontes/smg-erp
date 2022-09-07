@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>smg_erp</RootNamespace>
+    <UserSecretsId>57768a9d-6572-4d3e-9ae9-ff28dae25349</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
