@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using smg_erp.Models;
+using System.Text.Json;
 
 namespace smg_erp.Controllers;
 
@@ -12,10 +14,12 @@ public class WeatherForecastController : ControllerBase
     };
 
     private readonly ILogger<WeatherForecastController> _logger;
+    private readonly Context _context;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public WeatherForecastController(ILogger<WeatherForecastController> logger, Context context)
     {
         _logger = logger;
+        _context = context;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
@@ -28,5 +32,13 @@ public class WeatherForecastController : ControllerBase
             Summary = Summaries[Random.Shared.Next(Summaries.Length)]
         })
         .ToArray();
+    }
+
+    [HttpGet]
+    [Route("sql")]
+    public IActionResult SQL()
+    {
+        List<Tenant> result = _context.Tenants.ToList();
+        return Ok(result);
     }
 }

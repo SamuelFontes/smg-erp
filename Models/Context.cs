@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace smg_erp.Models
 {
-    public partial class samuguelContext : DbContext
+    public partial class Context : DbContext
     {
-        public samuguelContext()
+        public Context()
         {
         }
 
-        public samuguelContext(DbContextOptions<samuguelContext> options)
+        public Context(DbContextOptions<Context> options)
             : base(options)
         {
         }
@@ -27,10 +27,6 @@ namespace smg_erp.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Name=t");
-            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using smg_erp.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+var stringConnection = builder.Configuration["StringConnection"];
+builder.Services.AddDbContext<Context>(options => options.UseSqlServer(stringConnection));
 
 // Add services to the container.
 
