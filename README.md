@@ -1,5 +1,5 @@
-# smg-erp
-# [WIP]
+# smg-erp [WIP]
+
 This is the back-end of an ordering system that I plan to expand it to a ERP system someday in the future. 
 It's built with support to mult-tenant in mind so it can use a single database to multiple clients without having to
 host a application for each client.
