@@ -8,5 +8,7 @@ namespace smg_erp.Models
         public int TenantId { get; set; }
         public string? Name { get; set; }
         public DateTime? DateCreated { get; set; }
+
+        public virtual TenantSecrect TenantSecrect { get; set; } = null!;
     }
 }
