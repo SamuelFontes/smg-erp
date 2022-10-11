@@ -34,11 +34,11 @@ public class OrderItemsController : ControllerBase
 
     [HttpGet]
     [Route("OrderItem")]
-    public IActionResult GetSingle(int tenantId, int productId, int orderItemId)
+    public IActionResult GetSingle(int tenantId, int productId, int itemId)
     {
         try
         {
-            var res = _context.OrderItems.Where(orderItem => orderItem.TenantId == tenantId && orderItem.ProductId == productId && orderItem.OrderItemId == orderItemId).ToList();
+            var res = _context.OrderItems.Where(orderItem => orderItem.TenantId == tenantId && orderItem.ProductId == productId && orderItem.ItemId == itemId).ToList();
             return Ok(res);
         }
         catch (Exception e)
