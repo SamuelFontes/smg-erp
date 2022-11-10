@@ -4,8 +4,8 @@ using smg_erp.Models;
 var builder = WebApplication.CreateBuilder(args);
 //var stringConnection = builder.Configuration["StringConnection"];
 // FIXME: This is a bad way of configuring the string connection but it will do for now
-var stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""db.mdf"";Integrated Security=True;Connect Timeout=30";
-builder.Services.AddDbContext<Context>(options => options.UseSqlServer(stringConnection));
+var stringConnection = "Data Source=db.db";
+builder.Services.AddDbContext<Context>(options => options.UseSqlite(stringConnection));
 
 // Add services to the container.
 
