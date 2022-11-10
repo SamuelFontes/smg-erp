@@ -4,7 +4,7 @@ using smg_erp.Models;
 namespace smg_erp.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api")]
 public class OrdersController : ControllerBase
 {
     // TODO: Get the tenant_id from the token in all routes
