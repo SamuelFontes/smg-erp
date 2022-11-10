@@ -18,6 +18,12 @@ public class OrdersController : ControllerBase
     }
 
     [HttpGet]
+    public IActionResult Get()
+    {
+        return Ok("foi");
+    }
+
+    [HttpGet]
     [Route("Orders")]
     public IActionResult GetAll(int tenantId)
     {
