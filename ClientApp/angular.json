@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "smg_erp"
+  "defaultProject": "smg_erp",
+  "cli": {
+    "analytics": false
+  }
 }
