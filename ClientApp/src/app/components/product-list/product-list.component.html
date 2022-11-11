@@ -1,5 +1,7 @@
 <h1 id="tableLabel">Product List</h1>
 
+<app-button color="{{ showAddForm ? 'red' : 'green' }}" text="{{ showAddForm ? 'Close' : 'Add' }}"
+  (btnClick)="toggleAddForm()"></app-button>
 <p *ngIf="!products"><em>Loading...</em></p>
 
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="products">
