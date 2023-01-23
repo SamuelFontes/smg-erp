@@ -1,6 +1,7 @@
 ﻿using Azure;
 using Microsoft.Extensions.Logging;
 using Products.Domain.IService;
+using Products.Infrastructure.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;

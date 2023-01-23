@@ -15,9 +15,11 @@ public partial class Person
 
     public string? Email { get; set; }
 
-    public DateTime? ModifiedBy { get; set; }
+    public int? ModifiedBy { get; set; }
 
     public DateTime? DateCreated { get; set; }
 
     public bool? Active { get; set; }
+
+    public virtual Tenant Tenant { get; set; } = null!;
 }
