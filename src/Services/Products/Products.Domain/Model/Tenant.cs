@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Products.Infrastructure;
+namespace Authenticator.Domain;
 
 public partial class Tenant
 {
