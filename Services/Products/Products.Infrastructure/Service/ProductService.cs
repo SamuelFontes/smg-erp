@@ -41,7 +41,7 @@ namespace Products.Infrastructure.Service
             T response = null;
             try
             {
-                _context.Set<T>().Where(predicate).FirstOrDefault();
+                response = _context.Set<T>().Where(predicate).FirstOrDefault();
             }
             catch (Exception ex)
             {
