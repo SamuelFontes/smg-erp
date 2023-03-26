@@ -20,6 +20,4 @@ public partial class Person
     public DateTime? DateCreated { get; set; }
 
     public bool? Active { get; set; }
-
-    public virtual Tenant Tenant { get; set; } = null!;
 }

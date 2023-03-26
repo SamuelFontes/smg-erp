@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Products.Infrastructure;
 
@@ -22,6 +24,4 @@ public partial class Product
     public DateTime? DateCreated { get; set; }
 
     public bool? Active { get; set; }
-
-    public virtual Tenant Tenant { get; set; } = null!;
 }
