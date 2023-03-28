@@ -29,7 +29,8 @@
         {
           "name": "Night",
           "configurations": ["react","Products"],
-          "stopAll": true
+          "stopAll": true,
+          "isDefault": true
         }
     ],
 }
