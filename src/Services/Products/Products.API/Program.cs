@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Sqlite;
 using Microsoft.Extensions.Configuration;
 using Products.Domain.IService;
 using Products.Infrastructure.Context;
@@ -13,8 +14,9 @@ IWebHostEnvironment Environment = builder.Environment;
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddMemoryCache();
 
-builder.Services.AddDbContext<NightDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+var stringConnection = "Data Source=../../../../Database/db.db";
+builder.Services.AddDbContext<NightDbContext>(options => options.UseSqlite(stringConnection));
+//builder.Services.AddDbContext<NightDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddTransient<IProductService, ProductService>();
 
