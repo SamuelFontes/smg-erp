@@ -19,7 +19,7 @@ namespace Orders.Domain
         public bool? IsCanceled { get; set; }
         public DateTime? DateCanceled { get; set; }
 
-        public virtual Person Person { get; set; } = null!;
+        //public virtual Person Person { get; set; } = null!;
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

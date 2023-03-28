@@ -2,40 +2,54 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "build products",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/smg-erp.csproj",
+                "${workspaceFolder}/src/Services/Products/Products.API/Products.API.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "publish",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "publish",
-                "${workspaceFolder}/smg-erp.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
+            "type": "npm",
+            "label": "run web",
+            "script": "start",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "options": { 
+                "cwd": "src/Web" 
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "custom",
+                "pattern": {
+                    "regexp": "ˆ$"
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Compiling...",
+                    "endsPattern": "Compiled .*"
+                }
+            }
         },
         {
-            "label": "watch",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "watch",
-                "run",
-                "--project",
-                "${workspaceFolder}/smg-erp.csproj"
-            ],
-            "problemMatcher": "$msCompile"
+            "label": "Terminate All Tasks",
+            "command": "echo ${input:terminate}",
+            "type": "shell",
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+          "id": "terminate",
+          "type": "command",
+          "command": "workbench.action.tasks.terminate",
+          "args": "terminateAll"
         }
     ]
 }
