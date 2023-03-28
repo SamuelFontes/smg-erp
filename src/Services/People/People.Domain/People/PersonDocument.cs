@@ -12,6 +12,6 @@ namespace People.Domain
         public string? Url { get; set; }
         public DateTime? DateCreated { get; set; }
 
-        public virtual Person Person { get; set; } = null!;
+        // public virtual Person Person { get; set; } = null!;
     }
 }

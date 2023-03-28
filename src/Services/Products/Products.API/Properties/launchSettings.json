@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "Products.Facade": {
+    "Products.API": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

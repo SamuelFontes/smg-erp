@@ -4,7 +4,7 @@ using Products.Infrastructure;
 using Products.Infrastructure.Service;
 using Products.Domain.Model.Product;
 
-namespace Products.Facade.Controllers
+namespace Products.API.Controllers
 {
     [ApiController]
     [Route("api/Product")]
