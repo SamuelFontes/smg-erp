@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Products.Infrastructure;
+namespace Products.Domain.Model.ProductType;
 
 public partial class ProductType
 {
@@ -18,6 +18,4 @@ public partial class ProductType
     public DateTime? DateCreated { get; set; }
 
     public bool? Active { get; set; }
-
-    public virtual Tenant Tenant { get; set; } = null!;
 }

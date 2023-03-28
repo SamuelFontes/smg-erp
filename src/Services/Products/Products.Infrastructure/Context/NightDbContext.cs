@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Products.Domain.Model.Person;
+using Products.Domain.Model.Product;
+using Products.Domain.Model.ProductType;
+using Products.Domain.Model.Tenant;
 
 namespace Products.Infrastructure.Context;
 
@@ -39,11 +43,6 @@ public partial class NightDbContext : DbContext
             entity.Property(e => e.Email).HasMaxLength(24);
             entity.Property(e => e.LastName).HasMaxLength(24);
             entity.Property(e => e.Name).HasMaxLength(24);
-
-            entity.HasOne(d => d.Tenant).WithMany(p => p.People)
-                .HasForeignKey(d => d.TenantId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Persons_Tenant");
         });
 
         modelBuilder.Entity<Product>(entity =>
@@ -56,11 +55,6 @@ public partial class NightDbContext : DbContext
             entity.Property(e => e.Description).HasMaxLength(120);
             entity.Property(e => e.Name).HasMaxLength(60);
             entity.Property(e => e.Price).HasColumnType("decimal(5, 2)");
-
-            entity.HasOne(d => d.Tenant).WithMany(p => p.Products)
-                .HasForeignKey(d => d.TenantId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Products_Tenant");
         });
 
         modelBuilder.Entity<ProductType>(entity =>
@@ -72,11 +66,6 @@ public partial class NightDbContext : DbContext
             entity.Property(e => e.DateCreated).HasColumnType("datetime");
             entity.Property(e => e.Description).HasMaxLength(120);
             entity.Property(e => e.Name).HasMaxLength(60);
-
-            entity.HasOne(d => d.Tenant).WithMany(p => p.ProductTypes)
-                .HasForeignKey(d => d.TenantId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_ProductTypes_Tenant");
         });
 
         modelBuilder.Entity<Tenant>(entity =>

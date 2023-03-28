@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Products.Domain.IService;
 using Products.Infrastructure;
 using Products.Infrastructure.Service;
+using Products.Domain.Model.Product;
 
 namespace Products.Facade.Controllers
 {
@@ -9,25 +10,24 @@ namespace Products.Facade.Controllers
     [Route("api/Product")]
     public class ProductController : ControllerBase
     {
-        private readonly IProductService _productService; 
+        private readonly IProductService _productService;
         public ProductController(IProductService productService)
         {
-            _productService = productService;    
+            _productService = productService;
         }
 
-        // TODO: Change columns that are not supposed to be shown on the json after fetching data through the endpoint
         [HttpGet]
         [Route("GetProducts")]
         public IActionResult GetProducts()
         {
             try
             {
-               var response = _productService.GetAll<Product>(x => true).Result;
-               return Ok(response);
+                var response = _productService.GetAll<Product>(x => true).Result;
+                return Ok(response);
             }
             catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.InnerException?.ToString());
             }
         }
 
@@ -42,11 +42,10 @@ namespace Products.Facade.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.InnerException?.ToString());
             }
         }
 
-        // TODO: Finish post methods as create and update
         [HttpPost]
         [Route("CreateProduct")]
         public IActionResult CreateProduct(Product model)
@@ -54,11 +53,11 @@ namespace Products.Facade.Controllers
             try
             {
                 var response = _productService.Add(model);
-                return Ok(response);
+                return Ok(response.Result);
             }
             catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.InnerException?.ToString());
             }
         }
 
@@ -69,15 +68,14 @@ namespace Products.Facade.Controllers
             try
             {
                 var response = _productService.Update(model);
-                return Ok(response);
+                return Ok(response.Result);
             }
             catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.InnerException?.ToString());
             }
         }
 
-        // TODO: Change the delete function to the logical exclusion using the boolean column on the table
         [HttpDelete]
         [Route("DeleteProduct")]
         public IActionResult DeleteProduct(Product model)
@@ -85,11 +83,11 @@ namespace Products.Facade.Controllers
             try
             {
                 var response = _productService.Delete(model);
-                return Ok(response);
+                return Ok(response.Result);
             }
             catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.InnerException?.ToString());
             }
         }
     }

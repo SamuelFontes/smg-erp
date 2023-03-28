@@ -22,13 +22,6 @@ namespace Products.Infrastructure.Service
             _context = context;
             _logger = logger;
         }
-
-        // NT/TODO: There's few things on this code that i really want to change 
-        // The first and most important one is make some methods here more easier to understand
-        // Also do a better error troubleshooting would be really usefull (right now just making a better catch is already enough)
-        // Change the remove method to a update where it turns the Active column to 0
-        // Probably make this layer able to use Dapper too, so we can run procedures which is a must to-go thing.
-        // Anyways ive got alot of stuff that i want to change here before going to the frontend part but i dont have enough time right now
         public async Task<List<T>> GetAll<T>(Expression<Func<T, bool>> predicate) where T : class
         {
             List<T> response = null;

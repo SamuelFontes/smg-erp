@@ -1,0 +1,4 @@
+C:\Users\L E O\source\repos\Night\src\Web\ui\obj\Debug\Web.esproj.SuggestedBindingRedirects.cache
+C:\Users\L E O\source\repos\Night\src\Web\ui\obj\Debug\Web.esproj.CoreCompileInputs.cache
+C:\Users\L E O\source\repos\Night\src\Web\obj\Debug\Web.esproj.SuggestedBindingRedirects.cache
+C:\Users\L E O\source\repos\Night\src\Web\obj\Debug\Web.esproj.CoreCompileInputs.cache

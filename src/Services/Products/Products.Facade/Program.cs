@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Products.Domain.IService;
-using Products.Infrastructure;
 using Products.Infrastructure.Context;
 using Products.Infrastructure.Service;
 
